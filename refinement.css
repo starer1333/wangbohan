@@ -1,0 +1,51 @@
+@font-face { font-family: Editorial; src: url('assets/SourceHanSerifCN-VF.woff2') format('woff2'); font-weight: 200 900; font-display: swap; }
+html, body { overflow-x: clip; }
+.project-detail dl > div { padding-block: 2.25rem; }
+.project-detail dt { margin-bottom: 1rem; line-height: 1.4; }
+.project-detail { transition: none; }
+.project-track.is-open .project-detail { max-height: none; }
+@media (max-width:720px) {
+  .project-detail dl > div:nth-child(n) { padding-inline:0; border-left:0; }
+}
+.language-toggle { display:inline-flex; align-items:center; justify-content:center; min-width:44px; min-height:44px; background:transparent; border:1px solid var(--line); font-size:14px; }
+html[lang="en"] .hero-cn { font-family:Georgia,serif; font-size:clamp(3rem,7vw,7rem); letter-spacing:-.05em; }
+html[lang="en"] .hero-en { font-size:clamp(1.5rem,3vw,3rem); }
+html[lang="en"] h2, html[lang="en"] h3 { overflow-wrap:anywhere; }
+html[lang="en"] .experience-main h3 { font-size:clamp(2.5rem,5vw,5rem); }
+html[lang="en"] .signal-chain strong { font-size:clamp(1.6rem,2.5vw,2.8rem); }
+.scene-cut, .scroll-progress, .manifesto::before { display:none; }
+.site-header { inset-block-start:0; }
+.wordmark { font-family:'Microsoft YaHei',sans-serif; }
+.hero-copy h1,.manifesto-copy,.experience-heading h2,.projects-heading h2,.experience-main h3,.project-track h3,.screen-visual > strong,.visual-words i,.signal-stage h2,.closing h2,.signal-chain strong,.scene-mark { font-family:Editorial,'Songti SC',serif; font-weight:550; line-height:1.35; }
+.opening { height:175svh; }
+.hero-copy { left:7vw; right:7vw; bottom:12vh; transform:translateY(calc(var(--opening-progress) * -16vh)); opacity:calc(1 - var(--opening-progress)); }
+.hero-cn { font-size:clamp(5rem,11vw,10.5rem); }
+.hero-en { font-family:Georgia,serif; font-size:clamp(2rem,5vw,5rem); font-weight:400; letter-spacing:-.055em; transform:none; color:var(--ink); }
+.hero-composition { transform:scale(calc(1 + var(--opening-progress) * .6)); transform-origin:72% 40%; }
+.hero-composition .stage-block,.hero-composition .artifact,.focus-ring { display:none; }
+.stage-portal { position:absolute; top:19vh; right:7vw; width:38vw; height:53vh; background:var(--cobalt); color:var(--canvas); overflow:hidden; clip-path:inset(0 round 45% 45% 0 0); transform:rotate(-7deg); }
+.stage-portal::after { content:''; position:absolute; width:15%; height:110%; background:var(--coral); right:18%; top:-5%; transform:rotate(24deg) translateX(calc(var(--opening-progress) * 180%)); }
+.stage-portal b { position:absolute; font:400 clamp(16rem,40vw,42rem)/1 Georgia,serif; left:-12%; top:-8%; transform:translateX(calc(var(--opening-progress) * -12%)); }
+.stage-portal span,.stage-portal small { position:absolute; z-index:2; left:12%; bottom:12%; font-size:.8rem; letter-spacing:.2em; }
+.stage-portal small { bottom:6%; font-size:.6rem; letter-spacing:.05em; }
+.experience-heading h2,.projects-heading h2,.closing h2,.signal-stage h2 { font-size:clamp(3rem,6vw,6rem); }
+.experience-main h3 { font-size:clamp(3rem,7vw,7rem); }
+.experience-lines p { font-size:18px; line-height:1.85; }
+.skill-line { font-size:15px; line-height:1.9; }
+.project-track { opacity:1; }
+.project-track h3 { font-size:clamp(1.8rem,3vw,3.2rem); }
+.screen-visual > strong { font-size:clamp(1.8rem,3vw,3.3rem); overflow-wrap:anywhere; }
+.visual-words i { font-size:clamp(1.3rem,2.3vw,2.4rem); }
+.screen-meta { line-height:1.5; gap:1rem; }
+.screen-visual { clip-path:none; }
+@media(max-width:720px) {
+ .opening { height:150svh; } .opening-stage { min-height:650px; }
+ .hero-copy { left:1.25rem; right:1.25rem; bottom:10vh; }
+ .hero-cn { font-size:clamp(4rem,20vw,7rem); } .hero-en { font-size:clamp(1.8rem,9vw,3rem); }
+ .stage-portal { width:60vw; height:31vh; right:8vw; top:15vh; } .stage-portal b { font-size:65vw; } .stage-portal small { display:none; }
+ .hero-bottom { margin-top:1.4rem; }
+ .project-screen { height:32svh; min-height:240px; } .screen-visual { padding:1rem; }
+ .screen-visual > strong { font-size:1.45rem; } .visual-words i { font-size:1.1rem; }
+ .project-track { padding-block:2.5rem; } .project-track h3 { font-size:1.9rem; } .experience-main h3 { font-size:3.6rem; }
+}
+@media(prefers-reduced-motion:reduce) { .opening { height:auto; } .hero-copy,.hero-composition,.stage-portal::after,.stage-portal b { transform:none; opacity:1; } }
