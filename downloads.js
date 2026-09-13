@@ -11,7 +11,6 @@
   [8,'OPPO策划案.pdf','下载市场策划 · PDF','Download market-entry plan · PDF (Chinese)'],
   [9,'百度健康行业研究框架与战略分析.pdf','下载战略分析 · PDF','Download strategy analysis · PDF (Chinese)'],
   [10,'长飞光纤 内部控制分析.pptx','下载内部控制分析 · PPTX','Download internal-control analysis · PPTX (Chinese)'],
-  [10,'长飞光纤 内部控制.pptx','下载同内容原文件 · PPTX','Download identical source copy · PPTX (Chinese)']
  ];
  const tracks=[...document.querySelectorAll('[data-project]')];
  tracks.forEach(t=>t.querySelectorAll('.project-links a[href$="Research.pdf"]').forEach(a=>a.remove()));
@@ -21,4 +20,9 @@
   if(!links){links=document.createElement('div');links.className='project-links';detail.append(links);}
   const a=document.createElement('a');a.href='assets/projects/'+encodeURIComponent(file);a.download=file;a.textContent=zh+' ↓';a.dataset.downloadEn=en+' ↓';links.append(a);
  }
+ // Keep resources available even while the project explanation is collapsed.
+ tracks.forEach(track=>{
+  const links=track.querySelector('.project-links');
+  if(links?.children.length)track.insertBefore(links,track.querySelector('.details-toggle'));
+ });
 })();

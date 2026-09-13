@@ -2,6 +2,8 @@
 html, body { overflow-x: clip; }
 .project-detail dl > div { padding-block: 2.25rem; }
 .project-detail dt { margin-bottom: 1rem; line-height: 1.4; }
+.project-track > .project-links { margin:1.4rem 0; }
+.project-track > .project-links a { max-width:100%; line-height:1.5; overflow-wrap:anywhere; }
 .project-detail { transition: none; }
 .project-track.is-open .project-detail { max-height: none; }
 @media (max-width:720px) {
