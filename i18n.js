@@ -10,11 +10,11 @@
   bind('.skip-link', 'Skip to content');
   bind('.wordmark > span', 'Bohan Wang');
   bind('.site-header nav a', ['Experience','Projects','AI Lab','Contact']);
-  bind('.cv-link', 'CV (中文) <span>↓</span>');
+  bind('.cv-link', 'Download CV <span>↓</span>');
   bind('.hero-cn', 'Bohan Wang');
   bind('.hero-en', '王渤函');
   bind('.hero-bottom > p', 'Accounting · Computer Science · AI Workflows');
-  bind('.hero-links a', ['View projects ↘','DOWNLOAD CV (CHINESE) ↓']);
+  bind('.hero-links a', ['View projects ↘','DOWNLOAD CV ↓']);
   bind('.stage-portal > span', 'OBSERVE / ANALYZE / BUILD');
   bind('.manifesto-copy p', ['Lay out the material. Find the connections. Keep what matters.','Turning numbers into informed judgment.']);
   bind('.education-note span', 'Jilin University · 2023–2028');
@@ -70,7 +70,7 @@
     'Check references, numbers and execution results against the original material. Investigate uncertainty before using an answer.'
   ]);
   bind('.closing h2', 'Let’s talk<br>about the work.');
-  bind('.contact-links a[download] b', 'Download CV (Chinese) ↓');
+  bind('.contact-links a[download] b', 'Download English CV ↓');
   document.querySelectorAll('.credit-group').forEach(group => {
     ['University Second-class Scholarship','CET-6 517','IELTS 6.0 / Reading 7.0','Student team & event coordination','Accounting × Research × AI Workflows'].forEach((en,i)=>{
       const node=group.children[i]; bindings.push({node,zh:node.innerHTML,en});
@@ -83,6 +83,9 @@
   const button=document.querySelector('.language-toggle');
   function setLanguage(lang) {
     const en=lang==='en';
+    document.querySelectorAll('.cv-link,.hero-links a[download],.contact-links a[download]').forEach(link=>{
+      link.href=en?'assets/Bohan-Wang-CV-EN.pdf':'assets/Bohan-Wang-CV-CN.pdf';
+    });
     bindings.forEach(b=>b.node.innerHTML=en?b.en:b.zh);
     tracks.forEach((t,i)=>t.dataset.words=en?wordSets[i]:originalWords[i]);
     document.documentElement.lang=en?'en':'zh-CN';
