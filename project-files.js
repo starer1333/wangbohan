@@ -1,5 +1,8 @@
 /* Sizes come from the unchanged downloadable originals. */
 window.PROJECT_FILE_INFO={
+  "AGI与公司治理_中期检查.pdf": {
+    "bytes": 609948
+  },
   "AGI引入对公司治理效果的影响研究.pdf": {
     "bytes": 1624005
   },
