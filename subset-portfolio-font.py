@@ -5,7 +5,7 @@ sys.path.insert(0,str(base/'tmp/font-subset-tools'))
 from fontTools import subset
 from fontTools.ttLib import TTFont
 
-files=['index.html','research-preview.html','research-data.js','project-stories.js','project-evidence.js','internship-experience.js','personal-home.js','research-preview.js']
+files=['index.html','research-preview.html','research-data.js','project-stories.js','project-evidence.js','internship-experience.js','personal-notes.js','portfolio-direction.js','personal-home.js','research-preview.js']
 corpus=''.join((base/f).read_text(encoding='utf8') for f in files)
 font=TTFont(base/'assets/SourceHanSerifCN-VF.woff2')
 original=set(font.getBestCmap())

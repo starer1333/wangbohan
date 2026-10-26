@@ -46,8 +46,8 @@
  }
  function index(){
   const curated=category==='all'&&!catalogExpanded;
-  const categories={market:t('市场与消费者','Market and consumer'),research:t('行业与实证研究','Industry and empirical research'),audit:t('财务与审计','Finance and audit'),ai:t('AI与产品','AI and product')};
-  const visible=curated?['financedoc','ipo','holiland','oppo'].map(byId):projects.filter(p=>category==='all'||p.category===category);
+  const direction=window.PORTFOLIO_DIRECTION;const categories=Object.fromEntries(Object.entries(direction.paths).map(([id,path])=>[id,tr(path.title)]));
+  const visible=curated?direction.featured.map(byId):category==='all'?[...direction.featured.map(byId),...projects.filter(p=>!direction.featured.includes(p.id))]:direction.paths[category].ids.map(byId);
   const title=curated?t('精选项目','Selected projects'):category==='all'?t('全部项目','All projects'):categories[category];
   return `<div class="index-heading"><h2>${title}</h2></div><ul class="index-list project-evidence-list">${visible.map(p=>`<li><a class="index-link project-evidence-link" href="${url(p.id)}" style="${styles(p)}"><span class="project-row-head"><strong class="index-title">${e(tr(p.short))}</strong></span><span class="project-brief">${e(tr(p.summary)||tr(p.desc))}</span><span class="project-skills">${(p.skills||[]).map(skill=>`<span>${e(tr(skill))}</span>`).join('')}</span></a></li>`).join('')}</ul>${category==='all'?`<button class="catalog-expand" type="button" data-catalog-expand aria-expanded="${catalogExpanded}"><span>${catalogExpanded?t('收起完整目录','Return to selected projects'):t('查看全部12项项目与实践','Explore all 12 projects and practices')}</span><span aria-hidden="true">${catalogExpanded?'−':'＋'}</span></button>`:''}<p class="index-note">${t('点击查看项目详情，下载原始文档。','Open a project to read the details and download the original files.')}</p>`;
  }
@@ -83,8 +83,10 @@
   const hasResources=p.files.length||(p.external||[]).length;
   const sourceUrl=story.sourceUrl||(p.files[0]?'assets/projects/'+encodeURIComponent(p.files[0][0]):'assets/Bohan-Wang-CV-CN.pdf');
   const sections=paper?[['abstract',t(story.kind==='proposal'?'研究摘要':'论文摘要','Abstract')]]:story.sections.map(s=>[s.id,tr(s.title)]);
+  if(story.readingNotes)sections.push(['reading-notes',tr(story.readingNotes.title)]);
   if(hasResources)sections.push(['materials',t('原始材料','Materials')]);
-  const body=paper?`<section class="detail-section paper-abstract" id="abstract"><span class="eyebrow">${story.kind==='proposal'?'RESEARCH PROPOSAL':'ABSTRACT'}</span><h2>${t(story.kind==='proposal'?'研究摘要':'论文摘要','Abstract')}</h2>${story.abstract.map(a=>`<p>${e(tr(a))}</p>`).join('')}<p class="paper-keywords"><strong>${t('关键词','Keywords')}</strong> ${e(tr(story.keywords))}</p></section>`:story.sections.map(narrativeSection).join('');
+  const notes=story.readingNotes?`<section class="detail-section research-reading-notes" id="reading-notes"><h2>${e(tr(story.readingNotes.title))}</h2><dl>${story.readingNotes.items.map(([key,value])=>`<div><dt>${e(tr(key))}</dt><dd>${e(tr(value))}</dd></div>`).join('')}</dl></section>`:'';
+  const body=paper?`<section class="detail-section paper-abstract" id="abstract"><span class="eyebrow">${story.kind==='proposal'?'RESEARCH PROPOSAL':'ABSTRACT'}</span><h2>${t(story.kind==='proposal'?'研究摘要':'论文摘要','Abstract')}</h2>${story.abstract.map(a=>`<p>${e(tr(a))}</p>`).join('')}<p class="paper-keywords"><strong>${t('关键词','Keywords')}</strong> ${e(tr(story.keywords))}</p></section>${notes}`:story.sections.map(narrativeSection).join('');
   return `<div class="wrap project-story ${paper?'paper-story':'case-story'}" style="${styles(p)}"><div class="detail-breadcrumb"><a href="${url()}">${t('返回全部项目','All projects')}</a><span>${e(tr(p.label))}</span></div><header class="detail-hero"><div><span class="eyebrow">${e(tr(p.label))} / ${story.kind==='proposal'?'RESEARCH PROPOSAL':paper?'PAPER':'PROJECT'}</span><h1 class="detail-title">${e(tr(p.title))}</h1><p class="detail-deck">${e(paper?tr(p.desc):tr(story.intro))}</p></div><dl class="detail-meta"><div><dt>${t('个人工作','My contribution')}</dt><dd>${e(tr(p.role))}</dd><dt style="margin-top:18px">${t('工具与方法','Tools and methods')}</dt><dd class="detail-tools">${e(p.tools)}</dd></div>${hasResources?`<div><dt>${t('项目资料','Project materials')}</dt><dd>${resources(p)}</dd></div>`:''}</dl></header><div class="detail-layout"><nav class="contents" aria-label="${t('本页目录','On this page')}"><p>ON THIS PAGE</p>${sections.map(([id,title])=>`<a href="#${e(id)}">${e(title)}</a>`).join('')}</nav><article class="detail-content">${body}<p class="story-source"><a href="${e(sourceUrl)}" target="_blank" rel="noopener noreferrer">${e(tr(story.source))}</a></p>${hasResources?`<section class="detail-section" id="materials"><span class="eyebrow">ORIGINAL MATERIALS</span><h2>${t('查看完整材料','Read the full work.')}</h2><div class="resource-block">${resources(p)}</div></section>`:''}</article></div></div>`;
  }
 
@@ -96,7 +98,7 @@
   const p=byId(id);
   let homeHTML;
   const personalContext={lang,t,tr,projects,url,index,chart,category,catalogExpanded};
-  if(!id){personalContext.experience=window.INTERNSHIP_EXPERIENCE.render(personalContext);homeHTML=window.PERSONAL_HOME.render(personalContext);document.title=t('王渤函 — 财务、研究与构建','Bohan Wang — Finance, research and building');}
+  if(!id){personalContext.experience=window.INTERNSHIP_EXPERIENCE.render(personalContext);homeHTML=window.PERSONAL_HOME.render(personalContext);document.title=t('王渤函 — 商业分析、数据研究与AI实践','Bohan Wang — Business analysis, research and applied AI');}
   document.getElementById('main').innerHTML=id?(p?detail(p):`<div class="wrap error-page"><h1>${t('没有找到这个项目','Project not found')}</h1><a href="${url()}">${t('返回全部项目','Return to all projects')} </a></div>`):homeHTML;
   window.PERSONAL_HOME.mount(personalContext);
   if(p){observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){document.querySelectorAll('.contents a').forEach(a=>a.classList.toggle('active',a.hash==='#'+entry.target.id));}})},{rootMargin:'-15% 0px -60% 0px'});document.querySelectorAll('.detail-section').forEach(s=>observer.observe(s));}
