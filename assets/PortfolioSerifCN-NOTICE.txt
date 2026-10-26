@@ -1,0 +1,6 @@
+The Bohan Portfolio Serif font in PortfolioSerifCN.woff2 is a character subset of
+Source Han Serif CN, copyright Adobe. The original font is unchanged.
+The subset's family and PostScript names have been renamed to Bohan Portfolio Serif.
+It is distributed under the SIL Open Font License 1.1, included in
+SourceHanSerif-LICENSE.txt. Regenerate it with subset-portfolio-font.py after
+adding new website text.

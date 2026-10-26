@@ -17,7 +17,7 @@ Accounting · Computer Science · AI Workflows
 - **计算机辅修与 SQL / Computer science and SQL**：展示编程、网络、数据分析、数据库及网站设计课程；SQL 小示例可以在浏览器中实际运行。
 - **简历与联系 / CV and contact**：按界面语言提供中文或英文简历，并保留电话、邮箱与 GitHub 联系入口。
 
-项目内页包含项目概览、证据与图示、研究方法、交付内容和工作价值。原始报告、演示文稿、代码与在线演示入口直接可见，无需展开额外内容。
+项目内页按原材料分别展开：论文直接阅读摘要；研究方案呈现研究问题与方法；调研、商业分析、内控和产品项目使用具体发现、比较表格、问卷图表与业务流程说明。原始报告、演示文稿、代码与在线演示入口直接可见，无需展开额外内容，文件旁显示格式与大小。
 
 ## 视觉与交互 / Design
 
@@ -38,6 +38,8 @@ research-preview.js         语言切换、项目目录、详情及资料入口
 personal-home.js            首页、滚动章节与 SQL 示例
 research-data.js            12 项项目的中英文内容与附件映射
 project-evidence.js         项目简介与能力关键词
+project-stories.js          各项目的摘要、叙述、证据与表格
+project-files.js            下载文件大小
 internship-experience.js    中英文实习经历
 assets/                     本地字体、SQL 引擎、简历、项目资料及许可证
 ```
@@ -55,6 +57,8 @@ python -m http.server 4174
 - **简历**：替换 `assets/Bohan-Wang-CV-CN.pdf` 或 `assets/Bohan-Wang-CV-EN.pdf`，保持文件名不变。
 - **项目与附件**：在 `research-data.js` 更新项目内容及文件对应关系，将资料放入 `assets/projects/`。
 - **项目简介与能力**：编辑 `project-evidence.js`。
+- **项目详细内容**：编辑 `project-stories.js`，先核对相应原始报告，区分研究方案与已完成论文。
+- **中文字体**：`assets/PortfolioSerifCN.woff2` 是按网站用字精简的字体。新增文案后，先用 `python -m pip install fonttools brotli` 安装字体工具，再运行 `python subset-portfolio-font.py` 重新生成，并保留原字体许可证与子集说明。
 - **实习经历**：编辑 `internship-experience.js`。
 - **首页文案**：编辑 `personal-home.js`，同步检查中英文。
 - **发布**：将确认后的修改提交到本仓库 `main` 分支；在 GitHub Actions 中确认 Pages 部署完成，再检查公开网站。

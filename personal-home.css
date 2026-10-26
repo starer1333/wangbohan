@@ -1,5 +1,5 @@
 @font-face{font-family:Fraunces;src:url('assets/Fraunces.woff2') format('woff2');font-weight:100 900;font-display:swap}
-@font-face{font-family:PersonalCN;src:url('assets/SourceHanSerifCN-VF.woff2') format('woff2');font-weight:200 900;font-display:swap}
+@font-face{font-family:PersonalCN;src:url('assets/PortfolioSerifCN.woff2') format('woff2');font-weight:200 900;font-display:swap}
 :root{--personal-serif:Fraunces,Georgia,serif;--personal-cn:PersonalCN,'Songti SC',serif}
 .personal-presentation{color:#23372b}
 .personal-presentation .masthead{border-bottom:0;background:#fffffff2}
@@ -272,7 +272,41 @@ html[lang=en] .personal-description,html[lang=en] .internship-position,html[lang
 .footer-links a:hover,.footer-links a:focus-visible{color:var(--blue);background:transparent}
 .resource-link{padding:12px 8px;transition:color .18s,background-color .18s;min-height:48px}
 .resource-link>span:first-child{text-decoration:none}
+.resource-link small{font-size:10px;color:var(--muted);font-weight:400;white-space:nowrap}
+.project-story .detail-deck{font-size:17px;line-height:1.95}
+.project-story .detail-title{text-wrap:balance}
+.project-story .detail-content{max-width:920px}
+.story-section{padding-bottom:32px;margin-bottom:29px}
+.story-section h2{font-size:27px;line-height:1.5;margin-bottom:20px}
+.story-section>p,.paper-abstract>p{font-size:16px;line-height:2;color:#425148;margin:0 0 18px;max-width:780px}
+.paper-abstract h2{margin-top:10px}
+.paper-abstract>p{font-size:17px;line-height:2.05;margin-bottom:23px}
+.paper-abstract .paper-keywords{font-size:12px;line-height:1.9;color:var(--capability-ink);margin-top:27px}
+.paper-keywords strong{margin-right:12px}
+.story-table-wrap{width:100%;margin:22px 0;overflow-x:auto}
+.story-table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.85;text-align:left;border-top:2px solid var(--item-color)}
+.story-table th,.story-table td{padding:15px 16px;vertical-align:top;border-bottom:1px solid var(--line);word-break:normal;overflow-wrap:break-word}
+.story-table thead th{font-size:12px;font-weight:700;color:var(--capability-ink);background:var(--pale)}
+.story-table tbody th{font-weight:700;color:var(--deep);width:26%}
+.story-table tbody td{color:#425148}
+.story-section .story-caption,.story-source{font-size:11px;line-height:1.85;color:var(--muted);margin-top:15px}
+.story-source{margin-bottom:30px;max-width:780px}
+.story-source a:hover{color:var(--blue)}
+.story-bars{display:grid;gap:21px;margin:26px 0 20px}
+.story-bar{display:grid;grid-template-columns:minmax(150px,1.2fr) minmax(100px,2fr) 60px;gap:18px;align-items:center;font-size:14px;line-height:1.7}
+.story-bar-track{background:var(--bar-pale);height:27px}
+.story-bar-track i{display:block;width:var(--bar-value);height:100%;background:var(--bar-color)}
+.story-bar strong{font-size:28px;line-height:1.2;color:var(--bar-color);text-align:right}
+.story-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px;margin:28px 0}
+.story-metrics>div{border-top:2px solid var(--item-color);padding-top:18px}
+.story-metrics dd{font:500 47px/1.1 var(--personal-serif);margin:0 0 12px;color:var(--capability-ink)}
+.story-metrics dt{font-size:12px;line-height:1.8;color:#425148}
+html[lang=en] .story-section h2{font-family:var(--personal-serif);font-size:33px;line-height:1.25}
+html[lang=en] .story-caption,html[lang=en] .story-source{text-align:start}
+@media(max-width:900px){.project-story .detail-hero{gap:30px}.story-section>p,.paper-abstract>p{font-size:15px}.story-table{font-size:13px}.story-table th,.story-table td{padding:13px 12px}.story-bar{font-size:13px;gap:13px;grid-template-columns:minmax(135px,1.1fr) minmax(80px,1.4fr) 52px}}
+@media(max-width:600px){.project-story .detail-deck{font-size:15px;line-height:1.95}.story-section h2{font-size:23px}.story-section>p,.paper-abstract>p{font-size:15px;line-height:2}.story-table{font-size:12px}.story-table th,.story-table td{padding:12px 8px}.story-table tbody th{width:27%}.story-table thead th{font-size:11px}.story-bar{grid-template-columns:minmax(110px,1.3fr) minmax(60px,1fr) 47px;gap:11px;font-size:12px}.story-bar strong{font-size:25px}.story-bar-track{height:23px}.story-metrics{gap:15px}.story-metrics dd{font-size:36px}.story-metrics dt{font-size:11px}.story-source{font-size:10px}.resource-link small{font-size:9px}html[lang=en] .story-section h2{font-size:28px}}
 .resource-link:hover,.resource-link:focus-visible{background:var(--soft-green);color:var(--deep)}
+@media(max-width:600px){.project-story .story-table{font-size:13px}}
 /* A compact version fits the same scroll presentation at browser zoom and on short windows. */
 .why-compact .why-heading{margin-bottom:18px}
 .why-compact .why-heading h2{font-size:64px;margin-top:6px}
