@@ -1,5 +1,5 @@
 @font-face{font-family:Fraunces;src:url('assets/Fraunces.woff2') format('woff2');font-weight:100 900;font-display:swap}
-@font-face{font-family:PersonalCN;src:url('assets/PortfolioSerifCN.woff2?rev=agi16') format('woff2');font-weight:200 900;font-display:swap}
+@font-face{font-family:PersonalCN;src:url('assets/PortfolioSerifCN.woff2?rev=agi17') format('woff2');font-weight:200 900;font-display:swap}
 :root{--personal-serif:Fraunces,Georgia,serif;--personal-cn:PersonalCN,'Songti SC',serif}
 .personal-presentation{color:#23372b}
 .personal-presentation .masthead{border-bottom:0;background:#fffffff2}
