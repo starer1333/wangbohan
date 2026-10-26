@@ -230,7 +230,7 @@ html[lang=en] p,html[lang=en] .project-brief,html[lang=en] .detail-meta dd{text-
 /* Labels, topic tags and the intentionally composed introduction are not prose blocks. */
 html[lang=en] .personal-description,html[lang=en] .internship-position,html[lang=en] .internship-capabilities p,html[lang=en] .detail-capability-strip p,html[lang=en] .method-vocabulary p,html[lang=en] .contents p{text-align:start;hyphens:none}
 .footer-links .phone-link{white-space:nowrap}
-/* Keep the object captions clear of the chapter rule even with taller English copy. */
+/* Keep the covers clear of the chapter rule even with taller English copy. */
 @media(min-width:901px){.object-workbench{height:350px}}
 @media(min-width:1700px){.object-workbench{height:365px}}
 @media(min-width:601px) and (max-width:900px){.object-workbench{height:355px}}
@@ -325,4 +325,35 @@ html[lang=en] .story-caption,html[lang=en] .story-source{text-align:start}
 .why-compact .proof-chart{padding:17px}
 @media(min-width:701px) and (max-width:900px){.is-scroll-story .why-evidence{grid-template-columns:1fr 1fr;gap:28px}.is-scroll-story .proof-copy h3 br{display:block}.is-scroll-story .proof-field{display:block;padding:0 0 0 22px;background:none;border-left:1px solid var(--line)}.is-scroll-story .proof-field article+article{border-left:0;border-top:1px solid var(--line);margin-top:22px;padding:20px 0 0}.is-scroll-story .proof-chart .chart-row{grid-template-columns:85px 1fr 38px;gap:7px}.is-scroll-story .proof-chart .chart-label{font-size:10px}.is-scroll-story .proof-chart .chart-value{font-size:23px}.is-scroll-story .proof-chart .figure-title{font-size:11px}.is-scroll-story .proof-chart .chart-footnote{font-size:9px}.is-scroll-story .proof-workflow .workflow-steps{grid-template-columns:1fr 1fr}.is-scroll-story .proof-workflow .workflow-step{min-height:85px;padding:12px 8px}}
 @media(max-width:700px){.is-scroll-story .why-heading{margin-bottom:16px}.is-scroll-story .why-heading h2{font-size:55px;margin-top:6px}.is-scroll-story .why-choices{gap:16px}.is-scroll-story .why-choice{padding-block:13px}.is-scroll-story .why-choice strong{font-size:25px}.is-scroll-story .why-choice>span{font-size:10px;line-height:1.5;margin-top:8px}.is-scroll-story .method-vocabulary{padding-top:12px}.is-scroll-story .why-evidence{grid-template-columns:1fr;gap:18px;min-height:0;padding-top:21px}.is-scroll-story .proof-copy h3 br{display:none}.is-scroll-story .proof-field{padding:17px}.is-scroll-story .proof-field article+article{padding-top:14px;margin-top:14px}.is-scroll-story .proof-links{margin-top:12px;gap:14px}.why-compact .why-heading h2{font-size:44px}.why-compact .why-choice strong{font-size:23px}.why-compact .why-choice>span{font-size:9px}.why-compact .why-evidence{padding-top:16px;gap:16px}.why-compact .proof-copy h3,html[lang=en] .why-compact .proof-copy h3{font-size:22px}.why-compact .proof-field strong{font-size:22px}.why-compact .method-vocabulary{display:none}}
+/* On phones the covers keep their detail and invite a native swipe through the next visible cover. */
+@media(max-width:600px){
+ .object-workbench{display:flex;gap:22px;height:auto;max-width:none;margin:18px 0 0;padding:20px 18px 28px 12px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;scroll-padding-inline:12px;perspective:none;scrollbar-width:thin;scrollbar-color:#b7c9bd #f4f7f4}
+ .work-object{position:relative;flex:0 0 clamp(224px,68vw,280px);width:auto;left:auto;top:auto;margin:8px 0 10px;scroll-snap-align:start;transform-origin:center;--tilt:-3deg}
+ .research-object{--tilt:3deg}.build-object{--tilt:-2deg}
+ .object-workbench .artifact-page{height:320px;min-height:320px;padding:21px 18px;box-shadow:3px 4px 0 #d3d8d124,5px 9px 13px #28483217}
+ .object-workbench .paper-top{font-size:8px;letter-spacing:.05em}
+ .object-workbench .ledger-heading{font-size:31px;margin:18px 0 16px}
+ .object-workbench .ledger-table{font-size:10px;grid-template-columns:39px 1fr;gap:9px 8px;padding-block:10px}
+ .object-workbench .ledger-table i{height:6px;margin-top:4px}
+ .object-workbench .ledger-stamp{font-size:10px;margin-top:12px}
+ .object-workbench .page-foot{font-size:7px;margin-top:12px}
+ .object-workbench .paper-corner{width:25px;height:25px}
+ .object-workbench .research-book{padding-left:25px;border-left-width:7px}
+ .object-workbench .book-binding{left:7px}
+ .object-workbench .research-heading{font-size:29px;line-height:1.4;margin:19px 0 12px}
+ .object-workbench .research-number{font-size:53px}
+ .object-workbench .research-number>span{font-size:9px;letter-spacing:.04em}
+ .object-workbench .research-underline{width:72px;height:2px;margin:13px 0}
+ .object-workbench .research-book .page-foot{font-size:6px}
+ .object-workbench .tool-folder{margin-top:0;padding-top:23px}
+ .object-workbench .folder-tab{top:-17px;height:18px;font-size:7px;line-height:17px;padding-left:9px}
+ .object-workbench .code-mark{font-size:59px;margin:25px 0 17px}
+ .object-workbench .tool-heading{font-size:28px;line-height:1.45}
+ .object-workbench .tool-chain{font-size:8px;margin-top:16px;padding-top:10px}
+ .object-workbench .workbench-scribble{display:none}
+ html[lang=en] .object-workbench .ledger-heading{font-size:29px}
+ html[lang=en] .object-workbench .ledger-stamp{font-size:8px}
+ html[lang=en] .object-workbench .research-heading,html[lang=en] .object-workbench .tool-heading{font-size:27px}
+}
+@media(hover:none){.work-object:hover{transform:rotate(var(--tilt))}}
 @media print{.object-workbench{display:none}.personal-opening,.learning-section,.personal-about{display:block}.personal-catalog{border:0;padding:0}.why-section{min-height:0!important}.why-stage,.is-scroll-story .why-stage{position:static}.why-choices{display:none}.personal-name>[lang=en]{font-size:50px}.is-scroll-story .why-scenes{display:block}.is-scroll-story .why-scene{visibility:visible;opacity:1;pointer-events:auto;margin:25px 0}.is-scroll-story .proof-chapter{display:block}.why-evidence{display:block}.sql-notebook{transform:none;margin-top:25px}}
